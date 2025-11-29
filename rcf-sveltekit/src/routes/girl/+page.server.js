@@ -1,0 +1,21 @@
+const API_BASE = "https://api.dimecams.com/performers";
+
+export async function load({ url, fetch }) {
+  const page = url.searchParams.get("page") || 1;
+  const size = url.searchParams.get("size") || 60;
+
+  // ONLY LIVE models
+  const apiUrl = `${API_BASE}?gender=f&live=true&page=${page}&size=${size}`;
+  console.log("🔵 Fetching LIVE Girls:", apiUrl);
+
+  const res = await fetch(apiUrl);
+  const json = res.ok ? await res.json() : { performers: [], count: 0 };
+
+  return {
+    gender: "girl",
+    performers: json.performers || [],
+    count: json.count || 0,
+    page: Number(page),
+    size: Number(size)
+  };
+}

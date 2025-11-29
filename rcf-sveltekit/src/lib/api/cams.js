@@ -1,5 +1,4 @@
 const BACKEND = import.meta.env.VITE_BACKEND_URL; 
-// example: https://cams.mydomain.com
 
 export async function fetchCams(params = {}) {
   const query = new URLSearchParams(params).toString();

@@ -7,7 +7,7 @@
 
 <main class="p-4 bg-black text-white min-h-screen">
 
-  <h1 class="text-3xl font-bold mb-4">Girls</h1>
+  <h1 class="text-3xl font-bold mb-4">Guys</h1>
   <p class="text-gray-400 mb-6">
     Showing {performers.length} models (Page {page})
   </p>

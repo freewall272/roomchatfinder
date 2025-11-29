@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
-  import { tags, fetchRooms, selectedTag, selectedGender } from '$lib/roomsStore.js';
+  import { tags, fetchRooms, selectedTag, selectedGender } from '$lib/1roomsStore.js';
 
   $: currentPath = $page.url.pathname; // to detect if we're on the homepage
 
@@ -18,7 +18,7 @@
     // 🏠 If we're on the homepage, navigate to /f
     if (currentPath === '/' && !isSameTag) {
       selectedGender.set('f');
-      goto('/f');
+      goto('/girl');
     }
   }
 
@@ -59,8 +59,8 @@
   <!-- 🚻 GENDER LINKS -->
   <div class="flex justify-between gap-2 px-4 pb-3 overflow-x-auto border-t border-gray-800 bg-black">
     {#each [
-      { label: 'Girls', value: 'f' },
-      { label: 'Guys', value: 'm' },
+      { label: 'Girls', value: 'girl' },
+      { label: 'Guys', value: 'guy' },
       { label: 'Couples', value: 'c' },
       { label: 'Trans', value: 't' }
     ] as g}
